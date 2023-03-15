@@ -19,10 +19,16 @@ function onsubmit(e) {
         li.appendChild(input);
         userList.appendChild(li);
 
-        localStorage.setItem("name", userName.value);
-        console.log(localStorage.getItem("name"));
-        localStorage.setItem("email", email.value);
-        console.log(localStorage.getItem("email"));
+        // localStorage.setItem("name", userName.value);
+        // console.log(localStorage.getItem("name"));
+        // localStorage.setItem("email", email.value);
+        // console.log(localStorage.getItem("email"));
+
+        let input1= (`${userName.value}: ${email.value}`);
+        let inputStr=JSON.stringify(input1);
+        localStorage.setItem("user", inputStr);
+        let finalInput=JSON.parse(localStorage.getItem("user"));
+        console.log(finalInput);
 
         userName.value = "";
         email.value = "";
