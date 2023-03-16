@@ -24,10 +24,11 @@ function onsubmit(e) {
         // localStorage.setItem("email", email.value);
         // console.log(localStorage.getItem("email"));
 
-        let input1= (`${userName.value}: ${email.value}`);
-        let inputStr=JSON.stringify(input1);
-        localStorage.setItem("user", inputStr);
-        let finalInput=JSON.parse(localStorage.getItem("user"));
+        //assign the email as the key for the user so that each user gets added to the local storage because each mail is unique
+        let input1= (`Name:${userName.value} Email-id:${email.value}`);
+        let userMail=JSON.stringify(email.value);
+        localStorage.setItem(userMail,JSON.stringify(input1));
+        let finalInput=JSON.parse(localStorage.getItem(userMail));
         console.log(finalInput);
 
         userName.value = "";
@@ -35,4 +36,5 @@ function onsubmit(e) {
 
     }
 }
+
 
