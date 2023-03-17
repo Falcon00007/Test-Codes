@@ -42,7 +42,6 @@ const input={
         localStorage.setItem(input.Email, JSON.stringify(input));
         // let finalInput = JSON.parse(localStorage.getItem(email.value));
         console.log(input);
-        console.log(typeof(input))
         
         //to delete user
         var parentEle=document.getElementById('users');
@@ -51,6 +50,18 @@ const input={
             parentEle.removeChild(li);
         }
 
+        //to edit user
+        var parentEle=document.getElementById('users');
+        editBtn.onclick= () =>{
+            userName.value=input.Name;
+            email.value=input.Email;
+            number.value=input.PhNumber;
+            localStorage.removeItem(input.Email);
+            parentEle.removeChild(li);
+
+        }
+
         userName.value = "";
         email.value = "";
+        number.value="";
     }
